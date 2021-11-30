@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class OnTouchEndGame : MonoBehaviour
 {
-    public static event Action GameOver;
-    private void OnTriggerEnter(Collider other)
+    public static event Action<Transform,float > GameOver;
+    private void OnTriggerEnter (Collider other)
     {
         if (other.CompareTag("Player"))
         {
             if(GameOver!=null)
-            GameOver();
+            GameOver(other.transform,0f);
         }
     }
 }
